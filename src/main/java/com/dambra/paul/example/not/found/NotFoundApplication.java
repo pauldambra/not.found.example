@@ -21,6 +21,7 @@ public class NotFoundApplication extends Application<NotFoundConfiguration> {
 
     @Override
     public void run(NotFoundConfiguration configuration, Environment environment) {
+        environment.jersey().register(NotFoundLoggingFilter.class);
         environment.jersey().register(NotFoundLogger.class);
         environment.jersey().register(new FoundResource());
     }
